@@ -1,0 +1,5 @@
+SQLAlchemy~=2.0.23
+Pillow~=10.1.0
+ttkwidgets~=0.13.0
+requests~=2.31.0
+py2exe~=0.13.0.1
