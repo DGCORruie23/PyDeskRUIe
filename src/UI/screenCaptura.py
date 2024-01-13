@@ -25,14 +25,14 @@ class CapturaScreen:
 
     def capturaFrame(self):
         self.captura_frame = tk.Frame(self.root, width=430, height=650, bg="white")
-        self.captura_frame.pack(side=tk.RIGHT, fill=tk.BOTH, padx=10)
+        self.captura_frame.pack(side=tk.RIGHT)
         self.captura_frame.pack_propagate(False)
 
         now = datetime.now()
 
         fechaL = tk.Label(
             self.captura_frame,
-            text=f"Fecha: {now.day}-{now.month}-{now.year}",
+            text=f"Fecha: {now.strftime('%d-%m-%Y')}",
             bg="white", fg="black",
             font=("Arial", 15)
         )

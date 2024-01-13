@@ -95,6 +95,25 @@ class RegistroFamilias(Base):
     embarazo = Column(Boolean)
     numFamilia = Column(Integer)
 
+class DatosConteoR(Base):
+    __tablename__ = 'conteo_rapido'
+    idRegistro = Column(Integer, primary_key=True, autoincrement=True)
+    nacionalidad = Column(String)
+    iso3 = Column(String)
+    AS_hombres = Column(Integer)
+    AS_mujeresNoEmb = Column(Integer)
+    AS_mujeresEmb = Column(Integer)
+    NNAsS_hombres = Column(Integer)
+    NNAsS_mujeresNoEmb = Column(Integer)
+    NNAsS_mujeresEmb = Column(Integer)
+    Nucleos_Familiares = Column(Integer)
+    AA_hombres = Column(Integer)
+    AA_mujeresNoEmb = Column(Integer)
+    AA_mujeresEmb = Column(Integer)
+    NNAsA_hombres = Column(Integer)
+    NNAsA_mujeresNoEmb = Column(Integer)
+    NNAsA_mujeresEmb = Column(Integer)
+
 class RescateComp(Base):
     __tablename__ = 'rescate_completo'
 
@@ -153,5 +172,66 @@ class RescateComp(Base):
     numFamilia = Column(Integer)
     edad = Column(Integer)
 
+
+class DatosConteoRComp(Base):
+    __tablename__ = 'conteo_rapido_completo'
+    idRegistroCR = Column(Integer, primary_key=True, autoincrement=True)
+    oficinaRepre = Column(String)
+    fecha = Column(String)
+    hora = Column(String)
+    nombreAgente = Column(String)
+
+    aeropuerto = Column(Boolean)
+    carretero = Column(Boolean)
+    tipoVehic = Column(String)
+    lineaAutobus = Column(String)
+    numeroEcono = Column(String)
+    placas = Column(String)
+    vehiculoAseg = Column(Boolean)
+
+    casaSeguridad = Column(Boolean)
+    centralAutobus = Column(Boolean)
+
+    ferrocarril = Column(Boolean)
+    empresa = Column(String)
+
+    hotel = Column(Boolean)
+    nombreHotel = Column(String)
+
+    puestosADispo = Column(Boolean)
+    juezCalif = Column(Boolean)
+    reclusorio = Column(Boolean)
+    policiaFede = Column(Boolean)
+    dif = Column(Boolean)
+    policiaEsta = Column(Boolean)
+    policiaMuni = Column(Boolean)
+    guardiaNaci = Column(Boolean)
+    fiscalia = Column(Boolean)
+    otrasAuto = Column(Boolean)
+
+    voluntarios = Column(Boolean)
+    otro = Column(Boolean)
+
+    presuntosDelincuentes = Column(Boolean)
+    numPresuntosDelincuentes = Column(Integer)
+
+    municipio = Column(String)
+    puntoEstra = Column(String)
+
+    nacionalidad = Column(String)
+    iso3 = Column(String)
+    AS_hombres = Column(Integer)
+    AS_mujeresNoEmb = Column(Integer)
+    AS_mujeresEmb = Column(Integer)
+    NNAsS_hombres = Column(Integer)
+    NNAsS_mujeresNoEmb = Column(Integer)
+    NNAsS_mujeresEmb = Column(Integer)
+    Nucleos_Familiares = Column(Integer)
+    AA_NNAs_hombres = Column(Integer)
+    AA_NNAs_mujeresNoEmb = Column(Integer)
+    AA_NNAs_mujeresEmb = Column(Integer)
+    NNAsA_hombres = Column(Integer)
+    NNAsA_mujeresNoEmb = Column(Integer)
+    NNAsA_mujeresEmb = Column(Integer)
 
 Base.metadata.create_all(engine)

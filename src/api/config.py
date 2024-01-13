@@ -10,4 +10,4 @@ getAllMunicipios = "info/Municipios"
 getAllPuntosInter = "info/PuntosI"
 
 insertRescates = "registro/insertR"
-insertConteo = ""
+insertConteo = "registro/insertC"

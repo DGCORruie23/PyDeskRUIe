@@ -11,7 +11,7 @@ class ResumenScreen:
     def resumenFrame(self):
 
         self.resumen_frame = tk.Frame(self.root, width=430, height=650, bg=rojo)
-        self.resumen_frame.pack(side=tk.RIGHT, fill=tk.X, padx=10)
+        self.resumen_frame.pack(side=tk.RIGHT, padx=(10,0))
         self.resumen_frame.pack_propagate(False)
 
         msg_title = tk.Label(self.resumen_frame, text="Resumen", font=("Arial", 15))

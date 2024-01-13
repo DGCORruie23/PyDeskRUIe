@@ -1,32 +1,32 @@
 import tkinter as tk
-import pandas as pd
 
-from tkinter import messagebox
-from ttkwidgets.autocomplete import AutocompleteCombobox
-from tkinter import ttk
-
-bdate_list = [ xdate.strftime("%d/%m/%Y") for xdate in \
-                 pd.bdate_range(start='1/1/1920', end='1/1/2025') ]
+def validar_entry(event):
+    if entry.get() == '2':
+        boton.pack()  # Mostrar el botón si el valor es '2'
+    else:
+        boton.pack_forget()  # Ocultar el botón si el valor no es '2'
 
 root = tk.Tk()
-root.title("Physical Deal Porter")
-width=400
-height=500
-screenwidth = root.winfo_screenwidth()
-screenheight = root.winfo_screenheight()
-alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
-root.geometry(alignstr)
-root.resizable(width=False, height=False)
+root.title("Entry con botón")
 
-deliverydate = tk.Label(root, text="Delivery :")
-deliverydate.place(x=10,y=230,width=70,height=25)
-deliverydate_box = ttk.Combobox(root, width=20, values=bdate_list)
-deliverydate_box.place(x=100,y=230,width=200,height=25)
+def on_validate(*args):
+    value = entry.get()
+    if value == '2':
+        boton.pack()
+    else:
+        boton.pack_forget()
 
-pricingdate = tk.Label(root, text="Pricing :")
-pricingdate.place(x=10,y=335,width=70,height=25)
-pricingdate_box = AutocompleteCombobox(root, width=20, completevalues=bdate_list)
-pricingdate_box.place(x=100,y=335,width=200,height=25)
+entry_var = tk.StringVar()
+entry_var.trace('w', on_validate)
+
+entry = tk.Entry(root, textvariable=entry_var)
+entry.pack()
+
+boton = tk.Button(root, text="¡Soy un botón!")
+# Botón inicialmente oculto
+boton.pack_forget()
+
+entry.bind("<KeyRelease>", validar_entry)
 
 root.mainloop()
 

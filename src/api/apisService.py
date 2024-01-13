@@ -181,8 +181,91 @@ def enviarRescate(datosR):
 
 
     try:
-        respuesta = requests.post("http://localhost:8080/" + url_service, json=datos)
-        # respuesta = requests.post(base_url + url_service, json=datos)
+        # respuesta = requests.post("http://localhost:8080/" + url_service, json=datos)
+        respuesta = requests.post(base_url + url_service, json=datos)
+        data_resp = respuesta.json()
+
+    except:
+        print("no se pudo acceder al servicio y guardar los rescates")
+
+
+    return data_resp["guardado"]
+    # print(str(data_resp))
+
+def enviarRescateConteo(datosR):
+
+    url_service = config.insertConteo
+
+    datos = []
+
+    for i, data in enumerate(datosR):
+        data = {
+            "oficinaRepre": data.oficinaRepre,
+            "fecha": data.fecha,
+            'hora': data.hora,
+            'nombreAgente': data.nombreAgente,
+
+            'aeropuerto': data.aeropuerto,
+            'carretero': data.carretero,
+            'tipoVehic': data.tipoVehic,
+            'lineaAutobus': data.lineaAutobus,
+            'numeroEcono': data.numeroEcono,
+            'placas': data.placas,
+            'vehiculoAseg': data.vehiculoAseg,
+
+            'casaSeguridad': data.casaSeguridad,
+            'centralAutobus': data.centralAutobus,
+
+            'ferrocarril': data.ferrocarril,
+            'empresa': data.empresa,
+
+            'hotel': data.hotel,
+            'nombreHotel': data.nombreHotel,
+
+            'puestosADispo': data.puestosADispo,
+            'juezCalif': data.juezCalif,
+            'reclusorio': data.reclusorio,
+            'policiaFede': data.policiaFede,
+            'dif': data.dif,
+            'policiaEsta': data.policiaEsta,
+            'policiaMuni': data.policiaMuni,
+            'guardiaNaci': data.guardiaNaci,
+            'fiscalia': data.fiscalia,
+            'otrasAuto': data.otrasAuto,
+
+            'voluntarios': data.voluntarios,
+            'otro': data.otro,
+
+            'presuntosDelincuentes': data.presuntosDelincuentes,
+            'numPresuntosDelincuentes': data.numPresuntosDelincuentes,
+
+            'municipio': data.municipio,
+            'puntoEstra': data.puntoEstra,
+
+            'nacionalidad': data.nacionalidad,
+            'iso3': data.iso3,
+            'AS_hombres': data.AS_hombres,
+            'AS_mujeresNoEmb': data.AS_mujeresNoEmb,
+            'AS_mujeresEmb': data.AS_mujeresEmb,
+
+            'nucleosFamiliares': data.Nucleos_Familiares,
+            'AA_hombres': data.AA_NNAs_hombres,
+            'AA_mujeresNoEmb': data.AA_NNAs_mujeresNoEmb,
+            'AA_mujeresEmb': data.AA_NNAs_mujeresEmb,
+            'NNA_A_hombres': data.NNAsA_hombres,
+            'NNA_A_mujeresNoEmb': data.NNAsA_mujeresNoEmb,
+            'NNA_A_mujeresEmb': data.NNAsA_mujeresEmb,
+
+            'NNA_S_hombres': data.NNAsS_hombres,
+            'NNA_S_mujeresNoEmb': data.NNAsS_mujeresNoEmb,
+            'NNA_S_mujeresEmb': data.NNAsS_mujeresEmb,
+        }
+        datos.append(data)
+
+
+    try:
+        # respuesta = requests.post("http://localhost:8080/" + url_service, json=datos)
+        respuesta = requests.post(base_url + url_service, json=datos)
         data_resp = respuesta.json()
 
     except:
